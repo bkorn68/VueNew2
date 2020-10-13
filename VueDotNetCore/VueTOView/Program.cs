@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using ServiceReference1;
+using VueTOView.Common;
+using VueTOView.Tests;
 
 namespace VueTOView
 {
@@ -13,7 +16,17 @@ namespace VueTOView
     {
         public static void Main(string[] args)
         {
+            Test();
+
             CreateHostBuilder(args).Build().Run();
+        }
+        public static void Test()
+        {
+            ////TODO Insert your credentials for testing
+            string loginname = "";
+            string password = "";
+            Ident ident = LoginTest.TestLogin(loginname, password);
+
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
