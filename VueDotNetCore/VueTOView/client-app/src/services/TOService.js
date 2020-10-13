@@ -1,11 +1,9 @@
 
 import axios from 'axios';
 
-const url = 'http://localhost:56452/api/';
-//{{local_url}}/api/Technicians
-const techniciansUrl = url + 'Technicians';
-//{{local_url}}/api/Tours
-const toursUrl = url + 'Tours';
+
+const techniciansUrl = '/api/Technicians';
+const toursUrl = '/api/Tours';
 
 export default {
     getTechnicians(request) {

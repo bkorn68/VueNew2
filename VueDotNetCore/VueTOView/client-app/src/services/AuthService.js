@@ -1,8 +1,8 @@
 
 import axios from 'axios';
 
-const url = 'http://localhost:56452/api/';
-const loginUrl = url + 'Login/';
+
+const loginUrl = '/api/Login';
 
 
 export default {
