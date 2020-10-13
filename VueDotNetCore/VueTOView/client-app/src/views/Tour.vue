@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Login</h2>
+    <h2>Tour</h2>
     <div class="container">
     <label for="uname"><b>Monteur</b></label>
     <select v-model="selectedTechnichian">
