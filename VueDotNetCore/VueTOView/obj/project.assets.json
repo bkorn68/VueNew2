@@ -699,11 +699,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Temp\\VueNew\\VueDotNetCore\\VueTOView\\VueTOView.csproj",
+      "projectUniqueName": "C:\\Temp\\VueNew2\\VueDotNetCore\\VueTOView\\VueTOView.csproj",
       "projectName": "VueTOView",
-      "projectPath": "C:\\Temp\\VueNew\\VueDotNetCore\\VueTOView\\VueTOView.csproj",
+      "projectPath": "C:\\Temp\\VueNew2\\VueDotNetCore\\VueTOView\\VueTOView.csproj",
       "packagesPath": "C:\\Users\\b.korn\\.nuget\\packages\\",
-      "outputPath": "C:\\Temp\\VueNew\\VueDotNetCore\\VueTOView\\obj\\",
+      "outputPath": "C:\\Temp\\VueNew2\\VueDotNetCore\\VueTOView\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
