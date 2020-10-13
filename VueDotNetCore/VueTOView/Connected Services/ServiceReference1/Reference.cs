@@ -598,26 +598,27 @@ namespace ServiceReference1
         /// <param name="clientCredentials">Die Clientanmeldeinformationen</param>
         static partial void ConfigureEndpoint(System.ServiceModel.Description.ServiceEndpoint serviceEndpoint, System.ServiceModel.Description.ClientCredentials clientCredentials);
         
-        public AuthorizerInternalClient() : 
-                base(AuthorizerInternalClient.GetDefaultBinding(), AuthorizerInternalClient.GetDefaultEndpointAddress())
+        public AuthorizerInternalClient(string endpointAddress) : 
+                base(AuthorizerInternalClient.GetDefaultBinding(), AuthorizerInternalClient.GetDefaultEndpointAddress(endpointAddress))
         {
             this.Endpoint.Name = EndpointConfiguration.BasicHttpBinding_IAuthorizerInternal.ToString();
             ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
         }
         
-        public AuthorizerInternalClient(EndpointConfiguration endpointConfiguration) : 
-                base(AuthorizerInternalClient.GetBindingForEndpoint(endpointConfiguration), AuthorizerInternalClient.GetEndpointAddress(endpointConfiguration))
+
+        public AuthorizerInternalClient(EndpointConfiguration endpointConfiguration, string endpointAddress) : 
+                base(AuthorizerInternalClient.GetBindingForEndpoint(endpointConfiguration), AuthorizerInternalClient.GetEndpointAddress(endpointConfiguration, endpointAddress))
         {
             this.Endpoint.Name = endpointConfiguration.ToString();
             ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
         }
         
-        public AuthorizerInternalClient(EndpointConfiguration endpointConfiguration, string remoteAddress) : 
-                base(AuthorizerInternalClient.GetBindingForEndpoint(endpointConfiguration), new System.ServiceModel.EndpointAddress(remoteAddress))
-        {
-            this.Endpoint.Name = endpointConfiguration.ToString();
-            ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
-        }
+        //public AuthorizerInternalClient(EndpointConfiguration endpointConfiguration, string remoteAddress) : 
+        //        base(AuthorizerInternalClient.GetBindingForEndpoint(endpointConfiguration), new System.ServiceModel.EndpointAddress(remoteAddress))
+        //{
+        //    this.Endpoint.Name = endpointConfiguration.ToString();
+        //    ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
+        //}
         
         public AuthorizerInternalClient(EndpointConfiguration endpointConfiguration, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(AuthorizerInternalClient.GetBindingForEndpoint(endpointConfiguration), remoteAddress)
@@ -705,11 +706,11 @@ namespace ServiceReference1
             throw new System.InvalidOperationException(string.Format("Es wurde kein Endpunkt mit dem Namen \"{0}\" gefunden.", endpointConfiguration));
         }
         
-        private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration)
+        private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration, string endpointAddress)
         {
             if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_IAuthorizerInternal))
             {
-                return new System.ServiceModel.EndpointAddress("http://localhost:8092/bodegaAuthorizerInternal");
+                return new System.ServiceModel.EndpointAddress(endpointAddress);
             }
             throw new System.InvalidOperationException(string.Format("Es wurde kein Endpunkt mit dem Namen \"{0}\" gefunden.", endpointConfiguration));
         }
@@ -719,9 +720,9 @@ namespace ServiceReference1
             return AuthorizerInternalClient.GetBindingForEndpoint(EndpointConfiguration.BasicHttpBinding_IAuthorizerInternal);
         }
         
-        private static System.ServiceModel.EndpointAddress GetDefaultEndpointAddress()
+        private static System.ServiceModel.EndpointAddress GetDefaultEndpointAddress(string endpointAddress)
         {
-            return AuthorizerInternalClient.GetEndpointAddress(EndpointConfiguration.BasicHttpBinding_IAuthorizerInternal);
+            return AuthorizerInternalClient.GetEndpointAddress(EndpointConfiguration.BasicHttpBinding_IAuthorizerInternal,  endpointAddress);
         }
         
         public enum EndpointConfiguration

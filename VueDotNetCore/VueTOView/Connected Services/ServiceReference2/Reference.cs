@@ -6197,7 +6197,24 @@ namespace ServiceReference2
         /// <param name="serviceEndpoint">Der zu konfigurierende Endpunkt</param>
         /// <param name="clientCredentials">Die Clientanmeldeinformationen</param>
         static partial void ConfigureEndpoint(System.ServiceModel.Description.ServiceEndpoint serviceEndpoint, System.ServiceModel.Description.ClientCredentials clientCredentials);
-        
+
+        public WebToolExtendedServiceClient(string endpointAddress) :
+        base(WebToolExtendedServiceClient.GetDefaultBinding(), WebToolExtendedServiceClient.GetDefaultEndpointAddress(endpointAddress))
+        {
+            this.Endpoint.Name = EndpointConfiguration.BasicHttpBinding_IWebToolExtendedService.ToString();
+            ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
+        }
+
+        private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration, string endpointAddress)
+        {
+            if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_IWebToolExtendedService))
+            {
+                return new System.ServiceModel.EndpointAddress(endpointAddress);
+            }
+            throw new System.InvalidOperationException(string.Format("Es wurde kein Endpunkt mit dem Namen \"{0}\" gefunden.", endpointConfiguration));
+        }
+
+
         public WebToolExtendedServiceClient() : 
                 base(WebToolExtendedServiceClient.GetDefaultBinding(), WebToolExtendedServiceClient.GetDefaultEndpointAddress())
         {
@@ -6653,7 +6670,12 @@ namespace ServiceReference2
         {
             return WebToolExtendedServiceClient.GetBindingForEndpoint(EndpointConfiguration.BasicHttpBinding_IWebToolExtendedService);
         }
-        
+
+        private static System.ServiceModel.EndpointAddress GetDefaultEndpointAddress(string endpointAddress)
+        {
+            return WebToolExtendedServiceClient.GetEndpointAddress(EndpointConfiguration.BasicHttpBinding_IWebToolExtendedService, endpointAddress);
+        }
+
         private static System.ServiceModel.EndpointAddress GetDefaultEndpointAddress()
         {
             return WebToolExtendedServiceClient.GetEndpointAddress(EndpointConfiguration.BasicHttpBinding_IWebToolExtendedService);
