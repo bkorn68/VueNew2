@@ -36,7 +36,7 @@ namespace VueTOView.Controllers
             AuthorizerInternalClient client = ClientProvider.ProvideAuthClient(loginRequest.environment);
             Task<ServiceReference1.ResultOfIdentvcrQC78O> task = client.LoginAsync(loginRequest.loginname, loginRequest.password);
             ResultOfIdentvcrQC78O result = task.Result;
-            if ((string.IsNullOrEmpty(result.Error)) && (result.Data != null))
+            if ((result != null) && (string.IsNullOrEmpty(result.Error)) && (result.Data != null))
             {
                 ident = result.Data as Ident;
             }

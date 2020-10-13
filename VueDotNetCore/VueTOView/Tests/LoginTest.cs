@@ -9,13 +9,13 @@ namespace VueTOView.Tests
 {
     public static class LoginTest
     {
-        public static Ident TestLogin(string loginname, string password)
+        public static Ident TestLogin(string loginname, string password, VueTOView.Common.Environment environment)
         {
             Ident ident = null;
-            AuthorizerInternalClient client = ClientProvider.ProvideAuthClient(VueTOView.Common.Environment.Live);
+            AuthorizerInternalClient client = ClientProvider.ProvideAuthClient(environment);
             Task<ServiceReference1.ResultOfIdentvcrQC78O> task = client.LoginAsync(loginname, password);
             ResultOfIdentvcrQC78O result = task.Result;
-            if ((string.IsNullOrEmpty(result.Error)) && (result.Data != null))
+            if ((result != null) &&(string.IsNullOrEmpty(result.Error)) && (result.Data != null))
             {
                 ident = result.Data as Ident;
             }
