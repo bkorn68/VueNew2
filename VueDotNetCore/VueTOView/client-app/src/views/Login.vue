@@ -24,18 +24,42 @@ export default {
       pwtoken: '',
       loginname: '',
       password: '',
-      environment: 1,
-      msg: ''
+
+      msg: '',
+      environments: [
+        {
+            id: 1,
+            name: 'Live'
+        },
+        {
+            id: 2,
+            name: 'Test'
+        },
+        {
+            id: 3,
+            name: 'Edu'
+        },
+        {
+            id: 4,
+            name: 'Local'
+        },
+      ],
+      selectedenvironment: {
+            id: 1,
+            name: 'Live'
+      }
     };
   },
+
   methods: {
     async login() {
       try {
+        const environment = this.selectedenvironment.id;
         const credentials = {
-          pwtoken: this.pwtoken,
+
           loginname: this.loginname,
           password: this.password,
-          environment: this.environment
+          environment: environment
         };
         const response = await AuthService.login(credentials);
        
@@ -50,11 +74,12 @@ export default {
         console.log(token);
               const mandatorId = response.mandatorIds[0];
 
-              // const mandatorId = 1;
               console.log('mandatorId');
         console.log(mandatorId);
+             console.log('environment');
+        console.log(environment);
 
-        this.$store.dispatch('login', {ident, token, mandatorId });
+        this.$store.dispatch('login', {ident, token, mandatorId, environment });
 
         this.$router.push('/tour');
       } catch (error) {

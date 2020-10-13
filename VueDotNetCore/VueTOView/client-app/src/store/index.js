@@ -11,6 +11,7 @@ const getDefaultState = () => {
     ident: '',
     token: '',
     mandatorId: 1,
+    environment: 1,
     isLoggedIn: false
 
   };
@@ -29,6 +30,9 @@ export default new Vuex.Store({
     },
     getMandatorId: state => {
       return state.mandatorId;
+    },
+    getEnvironment: state => {
+      return state.environment;
     }
   },
   mutations: {
@@ -50,17 +54,22 @@ export default new Vuex.Store({
       state.mandatorId = mandatorId;
       console.log("mandatorId stored");
     },
+    SET_ENVIRONMENT: (state, environment) => {
+      state.environment = environment;
+      console.log("environment stored");
+    },
     RESET: state => {
       Object.assign(state, getDefaultState());
     }
   },
   actions: {
-    login: ({ commit, dispatch }, { ident, token, mandatorId }) => {
+    login: ({ commit, dispatch }, { ident, token, mandatorId, environment }) => {
       
       commit('SET_ISLOGGEDIN', (ident));
       commit('SET_IDENT', ident);
       commit('SET_TOKEN', token);
       commit('SET_MANDATORID', mandatorId);
+      commit('SET_ENVIRONMENT', environment);
 
       // set auth header
       Axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;

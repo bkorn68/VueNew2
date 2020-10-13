@@ -41,7 +41,6 @@ import TourList from "../components/TourList"
           },
       
       selectedDate: '2020-10-01',
-      environment: 1,
       msg: 'Lade Monteure...',
       tourList: [],
       toursfound: false,
@@ -74,7 +73,7 @@ import TourList from "../components/TourList"
       "MandatorId": this.$store.getters.getMandatorId
            },
            date: jsonDate,
-           environment: this.environment
+           environment: this.$store.getters.getEnvironment
          };
          console.log("Request:");
          console.log(request);
@@ -122,7 +121,7 @@ import TourList from "../components/TourList"
       const request = {
            ident: this.$store.getters.getIdent,
            mandatorId: this.$store.getters.getMandatorId,
-           environment: this.environment
+           environment: this.$store.getters.getEnvironment
          };
          console.log("Request:");
          console.log(request);
