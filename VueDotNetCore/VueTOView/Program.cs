@@ -12,6 +12,7 @@ using VueTOView.Common;
 using VueTOView.Converters;
 using VueTOView.Tests;
 
+
 namespace VueTOView
 {
     public class Program
@@ -38,6 +39,14 @@ namespace VueTOView
                     mandatorId = ident2.MandatorIds[0];
                 }
                 List<Technician> tourtechnicians =GetTechniciansTest.TestGetTourTechnicians(ident2, mandatorId, environment);
+                Technician technician = tourtechnicians.Where(e => (e.Name.StartsWith("Stephan Nitsch"))).FirstOrDefault();
+                if(technician != null)
+                {
+                    ID technicianID = technician.ID;
+                    DateTime date = Convert.ToDateTime("01/10/2020");
+                    List<TechnicianRequirement> tours = GetToursTest.TestGetTourOfTechnician(ident2, mandatorId, technicianID, date, environment);
+                }
+
             }
 
         }
