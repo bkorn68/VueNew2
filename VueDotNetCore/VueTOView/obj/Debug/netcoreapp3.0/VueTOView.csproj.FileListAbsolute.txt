@@ -35,7 +35,6 @@ C:\Temp\VueNew2\VueDotNetCore\VueTOView\bin\Debug\netcoreapp3.0\Microsoft.AspNet
 C:\Temp\VueNew2\VueDotNetCore\VueTOView\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.SpaServices.dll
 C:\Temp\VueNew2\VueDotNetCore\VueTOView\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
 C:\Temp\VueNew2\VueDotNetCore\VueTOView\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
-C:\Temp\VueNew2\VueDotNetCore\VueTOView\obj\Debug\netcoreapp3.0\VueTOView.csprojAssemblyReference.cache
 C:\Temp\VueNew2\VueDotNetCore\VueTOView\obj\Debug\netcoreapp3.0\staticwebassets\VueTOView.StaticWebAssets.Manifest.cache
 C:\Temp\VueNew2\VueDotNetCore\VueTOView\obj\Debug\netcoreapp3.0\staticwebassets\VueTOView.StaticWebAssets.xml
 C:\Temp\VueNew2\VueDotNetCore\VueTOView\obj\Debug\netcoreapp3.0\VueTOView.MvcApplicationPartsAssemblyInfo.cs
