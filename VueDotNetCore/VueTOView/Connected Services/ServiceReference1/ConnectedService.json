@@ -1,0 +1,43 @@
+﻿{
+  "ProviderId": "Microsoft.VisualStudio.ConnectedService.Wcf",
+  "Version": "15.0.31022.994",
+  "GettingStartedDocument": {
+    "Uri": "https://go.microsoft.com/fwlink/?linkid=858517"
+  },
+  "ExtendedData": {
+    "inputs": [
+      "../../wsdls/bodegaAuthorizerInternal2.wsdl"
+    ],
+    "collectionTypes": [
+      "System.Array",
+      "System.Collections.Generic.Dictionary`2"
+    ],
+    "namespaceMappings": [
+      "*, ServiceReference1"
+    ],
+    "references": [
+      "Microsoft.AspNetCore.NodeServices, {Microsoft.AspNetCore.NodeServices, 3.0.0-preview6.19307.2}",
+      "Microsoft.AspNetCore.SpaServices, {Microsoft.AspNetCore.SpaServices, 3.0.0-preview6.19307.2}",
+      "Microsoft.AspNetCore.SpaServices.Extensions, {Microsoft.AspNetCore.SpaServices.Extensions, 3.0.0-preview6.19307.2}",
+      "Microsoft.Extensions.Configuration, {Microsoft.Extensions.Configuration, 3.0.0-preview6.19304.6}",
+      "Microsoft.Extensions.Configuration.Abstractions, {Microsoft.Extensions.Configuration.Abstractions, 3.0.0-preview6.19304.6}",
+      "Microsoft.Extensions.Configuration.Binder, {Microsoft.Extensions.Configuration.Binder, 3.0.0-preview6.19304.6}",
+      "Microsoft.Extensions.DependencyInjection, {Microsoft.Extensions.DependencyInjection, 3.0.0-preview6.19304.6}",
+      "Microsoft.Extensions.DependencyInjection.Abstractions, {Microsoft.Extensions.DependencyInjection.Abstractions, 3.0.0-preview6.19304.6}",
+      "Microsoft.Extensions.FileProviders.Abstractions, {Microsoft.Extensions.FileProviders.Abstractions, 3.0.0-preview6.19304.6}",
+      "Microsoft.Extensions.FileProviders.Physical, {Microsoft.Extensions.FileProviders.Physical, 3.0.0-preview6.19304.6}",
+      "Microsoft.Extensions.FileSystemGlobbing, {Microsoft.Extensions.FileSystemGlobbing, 3.0.0-preview6.19304.6}",
+      "Microsoft.Extensions.Logging, {Microsoft.Extensions.Logging, 3.0.0-preview6.19304.6}",
+      "Microsoft.Extensions.Logging.Abstractions, {Microsoft.Extensions.Logging.Abstractions, 3.0.0-preview6.19304.6}",
+      "Microsoft.Extensions.Logging.Configuration, {Microsoft.Extensions.Logging.Configuration, 3.0.0-preview6.19304.6}",
+      "Microsoft.Extensions.Logging.Console, {Microsoft.Extensions.Logging.Console, 3.0.0-preview6.19304.6}",
+      "Microsoft.Extensions.Options, {Microsoft.Extensions.Options, 3.0.0-preview6.19304.6}",
+      "Microsoft.Extensions.Options.ConfigurationExtensions, {Microsoft.Extensions.Options.ConfigurationExtensions, 3.0.0-preview6.19304.6}",
+      "Microsoft.Extensions.Primitives, {Microsoft.Extensions.Primitives, 3.0.0-preview6.19304.6}",
+      "Newtonsoft.Json, {Newtonsoft.Json, 12.0.1}",
+      "System.Runtime.CompilerServices.Unsafe, {System.Runtime.CompilerServices.Unsafe, 4.6.0-preview6.19303.8}"
+    ],
+    "targetFramework": "netcoreapp3.0",
+    "typeReuseMode": "All"
+  }
+}

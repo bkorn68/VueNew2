@@ -37,11 +37,10 @@ C:\Temp\VueNew2\VueDotNetCore\VueTOView\bin\Debug\netcoreapp3.0\Microsoft.AspNet
 C:\Temp\VueNew2\VueDotNetCore\VueTOView\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
 C:\Temp\VueNew2\VueDotNetCore\VueTOView\obj\Debug\netcoreapp3.0\staticwebassets\VueTOView.StaticWebAssets.Manifest.cache
 C:\Temp\VueNew2\VueDotNetCore\VueTOView\obj\Debug\netcoreapp3.0\staticwebassets\VueTOView.StaticWebAssets.xml
-C:\Temp\VueNew2\VueDotNetCore\VueTOView\obj\Debug\netcoreapp3.0\VueTOView.MvcApplicationPartsAssemblyInfo.cs
-C:\Temp\VueNew2\VueDotNetCore\VueTOView\obj\Debug\netcoreapp3.0\VueTOView.MvcApplicationPartsAssemblyInfo.cache
 C:\Temp\VueNew2\VueDotNetCore\VueTOView\obj\Debug\netcoreapp3.0\VueTOView.AssemblyInfoInputs.cache
 C:\Temp\VueNew2\VueDotNetCore\VueTOView\obj\Debug\netcoreapp3.0\VueTOView.AssemblyInfo.cs
 C:\Temp\VueNew2\VueDotNetCore\VueTOView\obj\Debug\netcoreapp3.0\VueTOView.RazorTargetAssemblyInfo.cache
 C:\Temp\VueNew2\VueDotNetCore\VueTOView\obj\Debug\netcoreapp3.0\VueTOView.csproj.CopyComplete
 C:\Temp\VueNew2\VueDotNetCore\VueTOView\obj\Debug\netcoreapp3.0\VueTOView.dll
 C:\Temp\VueNew2\VueDotNetCore\VueTOView\obj\Debug\netcoreapp3.0\VueTOView.pdb
+C:\Temp\VueNew2\VueDotNetCore\VueTOView\obj\Debug\netcoreapp3.0\VueTOView.csprojAssemblyReference.cache
