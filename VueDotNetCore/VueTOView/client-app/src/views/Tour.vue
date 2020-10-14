@@ -41,7 +41,7 @@ import TourList from "../components/TourList"
           },
       
       selectedDate: '2020-10-01',
-      msg: 'Lade Monteure...',
+      msg: '',
       tourList: [],
       toursfound: false,
       googleURL: ''
@@ -58,7 +58,7 @@ import TourList from "../components/TourList"
         {
          this.toursfound = false;
          console.log("Start getTours")
-         this.msg = 'ermittel Touren';
+         this.msg = 'Rufe Touren ab...';
          const date = new Date(this.selectedDate);
          const jsonDate = date.toJSON();
 
@@ -83,9 +83,17 @@ import TourList from "../components/TourList"
          if (count > 0)
          {
          this.tourList = tours;
-         this.msg = count + ' Touren gefunden';
          this.toursfound = true;
          }
+                 if(count == 0)
+         {
+        this.msg = 'keine Touren gefunden.';
+         }
+         else
+         {
+        this.msg = count + ' Touren gefunden.';
+        }
+ 
 
         }
      catch(error)
@@ -117,6 +125,7 @@ import TourList from "../components/TourList"
     try
     {
       console.log("Start getTechnicians")
+      this.msg = 'Rufe Monteure ab...';
 
       const request = {
            ident: this.$store.getters.getIdent,
@@ -130,14 +139,21 @@ import TourList from "../components/TourList"
          const techs = response;
          let count = techs.length;
          this.technichians = techs;
-         this.msg = count + ' Monteuere gefunden';
-
+         if(count == 0)
+         {
+        this.msg = 'keine Monteuere gefunden.';
+         }
+         else
+         {
+        this.msg = count + ' Monteuere gefunden.';
+        }
+ 
          
     }
     catch(error)
     {
       console.log(error);
-        this.msg = 'Abruf Monteuere fehlgeschlagen';
+        this.msg = 'Abruf Monteure fehlgeschlagen';
     }
     
   }

@@ -3,6 +3,14 @@
   <div>
     <h2>Login</h2>
     <div class="container">
+      <label for="uname"><b>Umgebung</b></label>
+         <select v-model="selectedenvironment">
+    <option v-bind:value="{name: environment.name,id: environment.id}" v-for="environment in environments">
+      {{environment.id + ' - ' +  environment.name }}
+      </option>
+
+</select>
+
     <label for="uname"><b>Benutzername</b></label>
     <input type="text" placeholder="Benutzername eingeben" name="loginname" v-model="loginname" required>
 
@@ -45,8 +53,7 @@ export default {
         },
       ],
       selectedenvironment: {
-            id: 1,
-            name: 'Live'
+ 
       }
     };
   },
@@ -54,6 +61,7 @@ export default {
   methods: {
     async login() {
       try {
+        this.msg = 'führe Anmeldung durch...'
         const environment = this.selectedenvironment.id;
         const credentials = {
 
@@ -78,15 +86,19 @@ export default {
         console.log(mandatorId);
              console.log('environment');
         console.log(environment);
-
+         this.msg = 'Anmeldung erfolgreich durchgeführt.';
         this.$store.dispatch('login', {ident, token, mandatorId, environment });
 
         this.$router.push('/tour');
       } catch (error) {
         console.log(error);
-        this.msg = 'Login fehlgeschlagen';
+        this.msg = 'Anmeldung fehlgeschlagen';
       }
     }
+  },
+  created()
+  {
+    this.selectedenvironment = this.environments[0];
   }
 };
 </script>
@@ -127,5 +139,15 @@ padding-left: 560px;
   padding-right: 560px;
 vertical-align: middle;
   
+}
+/* Full-width select */
+select {
+width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+
 }
 </style>
