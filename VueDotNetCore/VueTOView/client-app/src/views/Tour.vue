@@ -1,5 +1,9 @@
 <template>
   <div>
+    <loading :active.sync="isLoading" 
+        
+        :loader="bars"
+        :is-full-page="fullPage"></loading>
     <h2>Tour</h2>
     <div class="container">
     <label for="uname"><b>Monteur</b></label>
@@ -16,7 +20,7 @@
 
 
     <button type="submit" @click="getTours">Touren</button>
-    <p v-if="msg">{{ msg }}</p>
+    <p id="msg" v-if="msg">{{ msg }}</p>
     <TourList v-bind:tourList="tourList" v-if="this.toursfound" />
     <button type="submit" @click="showGoogle" v-if="this.toursfound" >Google</button>
     
@@ -30,6 +34,8 @@
 <script>
 import TOService from '@/services/TOService.js';
 import TourList from "../components/TourList"
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.css';
 
     export default {
     data() {
@@ -44,14 +50,24 @@ import TourList from "../components/TourList"
       msg: '',
       tourList: [],
       toursfound: false,
-      googleURL: ''
+      googleURL: '',
+      isLoading: false,
+      fullPage: true
       
     }
   },
   components: {
-    TourList
+    TourList,
+    Loading
   },
   methods: {
+      showLoader() {
+                this.isLoading = true;
+                // simulate AJAX
+                // setTimeout(() => {
+                //   this.isLoading = false
+                // },5000)
+            },
       async getTours()
         {
         try
@@ -59,6 +75,7 @@ import TourList from "../components/TourList"
          this.toursfound = false;
          console.log("Start getTours")
          this.msg = 'Rufe Touren ab...';
+         this.showLoader();
          const date = new Date(this.selectedDate);
          const jsonDate = date.toJSON();
 
@@ -88,10 +105,12 @@ import TourList from "../components/TourList"
                  if(count == 0)
          {
         this.msg = 'keine Touren gefunden.';
+        this.isLoading = false
          }
          else
          {
         this.msg = count + ' Touren gefunden.';
+        this.isLoading = false
         }
  
 
@@ -100,6 +119,7 @@ import TourList from "../components/TourList"
     {
       console.log(error);
         this.msg = 'Abruf Touren fehlgeschlagen';
+        this.isLoading = false
     }
      
 
@@ -126,6 +146,7 @@ import TourList from "../components/TourList"
     {
       console.log("Start getTechnicians")
       this.msg = 'Rufe Monteure ab...';
+      this.showLoader();
 
       const request = {
            ident: this.$store.getters.getIdent,
@@ -142,10 +163,12 @@ import TourList from "../components/TourList"
          if(count == 0)
          {
         this.msg = 'keine Monteuere gefunden.';
+        this.isLoading = false
          }
          else
          {
         this.msg = count + ' Monteuere gefunden.';
+        this.isLoading = false
         }
  
          
@@ -154,6 +177,7 @@ import TourList from "../components/TourList"
     {
       console.log(error);
         this.msg = 'Abruf Monteure fehlgeschlagen';
+        this.isLoading = false
     }
     
   }

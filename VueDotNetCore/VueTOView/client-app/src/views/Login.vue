@@ -1,6 +1,10 @@
 
 <template>
   <div>
+    <loading :active.sync="isLoading" 
+        
+        :loader="bars"
+        :is-full-page="fullPage"></loading>
     <h2>Login</h2>
     <div class="container">
       <label for="uname"><b>Umgebung</b></label>
@@ -25,6 +29,8 @@
 </template>
 <script>
 import AuthService from '@/services/AuthService.js';
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.css';
 
 export default {
   data() {
@@ -54,14 +60,27 @@ export default {
       ],
       selectedenvironment: {
  
-      }
+      },
+      isLoading: false,
+      fullPage: true
     };
   },
+  components: {
+            Loading
+        },
 
   methods: {
+        showLoader() {
+                this.isLoading = true;
+                // simulate AJAX
+                // setTimeout(() => {
+                //   this.isLoading = false
+                // },5000)
+            },
     async login() {
       try {
         this.msg = 'führe Anmeldung durch...'
+        this.showLoader();
         const environment = this.selectedenvironment.id;
         const credentials = {
 
@@ -87,12 +106,14 @@ export default {
              console.log('environment');
         console.log(environment);
          this.msg = 'Anmeldung erfolgreich durchgeführt.';
+         this.isLoading = false
         this.$store.dispatch('login', {ident, token, mandatorId, environment });
 
         this.$router.push('/tour');
       } catch (error) {
         console.log(error);
         this.msg = 'Anmeldung fehlgeschlagen';
+        this.isLoading = false
       }
     }
   },
