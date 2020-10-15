@@ -17,7 +17,7 @@ namespace VueTOView.Controllers
     public class ToursController : ControllerBase
     {
         [HttpPost]
-        public static IEnumerable<GetToursOfTechnicianResponseData> GetToursOfTechnician([FromBody]GetToursOfTechnicianRequest getToursOfTechnicianRequest)
+        public  IEnumerable<GetToursOfTechnicianResponseData> GetToursOfTechnician([FromBody]GetToursOfTechnicianRequest getToursOfTechnicianRequest)
         {
             List<GetToursOfTechnicianResponseData> result = null;
             List<TechnicianRequirement> list = null;

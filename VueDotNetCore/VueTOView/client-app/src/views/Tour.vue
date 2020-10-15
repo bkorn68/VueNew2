@@ -2,7 +2,7 @@
   <div>
     <loading :active.sync="isLoading" 
         
-        :loader="bars"
+        
         :is-full-page="fullPage"></loading>
     <h2>Tour</h2>
     <div class="container">

@@ -17,7 +17,7 @@ namespace VueTOView.Controllers
     public class TechniciansController : ControllerBase
     {
         [HttpPost]
-        public static IEnumerable<GetTechniciansResponseData> GetTechnicians([FromBody]GetTechniciansRequest getTechniciansRequest)
+        public  IEnumerable<GetTechniciansResponseData> GetTechnicians([FromBody]GetTechniciansRequest getTechniciansRequest)
         {
             if (getTechniciansRequest == null) throw new ArgumentNullException(nameof(getTechniciansRequest));
             List<GetTechniciansResponseData> result = null;
