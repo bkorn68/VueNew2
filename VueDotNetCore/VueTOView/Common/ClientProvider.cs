@@ -1,12 +1,8 @@
-﻿using ServiceReference1;
-using ServiceReference2;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace VueTOView.Common
+﻿namespace VueTOView.Common
 {
+    using ServiceReference1;
+    using ServiceReference2;
+
     public static class ClientProvider
     {
         public static AuthorizerInternalClient ProvideAuthClient(Environment environment)
@@ -16,6 +12,7 @@ namespace VueTOView.Common
             AuthorizerInternalClient client = new AuthorizerInternalClient(endpointAddress);
             return client;
         }
+
         public static WebToolExtendedServiceClient ProvideTOClient(Environment environment)
         {
             string endpointAddress = string.Empty;

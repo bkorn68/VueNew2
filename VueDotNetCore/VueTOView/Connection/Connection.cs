@@ -1,24 +1,25 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.SpaServices;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
-
-namespace VueTOView
+﻿namespace VueTOView
 {
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.SpaServices;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Logging;
+    using System;
+    using System.Diagnostics;
+    using System.IO;
+    using System.Linq;
+    using System.Net.NetworkInformation;
+    using System.Runtime.InteropServices;
+    using System.Threading.Tasks;
+
     public static class Connection
     {
-       
         private static int Port { get; } = 8080;
+
         private static Uri DevelopmentServerEndpoint { get; } = new Uri($"http://localhost:{Port}");
+
         private static TimeSpan Timeout { get; } = TimeSpan.FromSeconds(60);
-       
+
         private static string DoneMessage { get; } = "DONE  Compiled successfully in";
 
         public static void UseVueDevelopmentServer(this ISpaBuilder spa)
@@ -33,12 +34,11 @@ namespace VueTOView
                     return DevelopmentServerEndpoint;
                 }
 
-              
                 var isWindows = RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
                 var processInfo = new ProcessStartInfo
                 {
                     FileName = isWindows ? "cmd" : "npm",
-                    Arguments = $"{(isWindows ? "/c npm " : "")}run serve",
+                    Arguments = $"{(isWindows ? "/c npm " : string.Empty)}run serve",
                     WorkingDirectory = "client-app",
                     RedirectStandardError = true,
                     RedirectStandardInput = true,
@@ -92,7 +92,6 @@ namespace VueTOView
 
                 return DevelopmentServerEndpoint;
             });
-
         }
 
         private static bool IsRunning() => IPGlobalProperties.GetIPGlobalProperties()

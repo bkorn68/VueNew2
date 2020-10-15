@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace VueTOView.Common
+﻿namespace VueTOView.Common
 {
     public static class UrlProvider
     {
-
-        public  static string ProvideForAuth(Environment environment)
+        public static string ProvideForAuth(Environment environment)
         {
             string url = string.Empty;
             switch (environment)
@@ -34,6 +28,7 @@ namespace VueTOView.Common
 
             return url;
         }
+
         public static string ProvideForTO(Environment environment)
         {
             string url = string.Empty;

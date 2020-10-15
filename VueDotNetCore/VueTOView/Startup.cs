@@ -1,24 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-
-
 namespace VueTOView
 {
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Hosting;
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            this.Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
@@ -27,12 +19,13 @@ namespace VueTOView
         public static void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
             // connect vue app - middleware
             services.AddSpaStaticFiles(options => options.RootPath = "client-app/dist");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public static  void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -62,7 +55,6 @@ namespace VueTOView
                 spa.Options.SourcePath = "client-app";
                 if (env.IsDevelopment())
                 {
-                    
                     spa.UseVueDevelopmentServer();
                 }
             });

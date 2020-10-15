@@ -1,18 +1,13 @@
-﻿using ServiceReference2;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace VueTOView.RequestData
+﻿namespace VueTOView.RequestData
 {
+    using ServiceReference2;
+
     public class GetTechniciansRequest
     {
-        public Ident ident { get; set; }
-        public int mandatorId { get; set; }
+        public Ident Ident { get; set; }
 
+        public int MandatorId { get; set; }
 
-        public VueTOView.Common.Environment environment { get; set; }
-
+        public VueTOView.Common.Environment Environment { get; set; }
     }
 }

@@ -1,20 +1,18 @@
-﻿using ServiceReference2;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace VueTOView.RequestData
+﻿namespace VueTOView.RequestData
 {
+    using ServiceReference2;
+    using System;
+
     public class GetToursOfTechnicianRequest
     {
-        public Ident ident { get; set; }
-        public int mandatorId { get; set; }
-        public ID technicianID { get; set; }
-        public DateTime date { get; set; }
+        public Ident Ident { get; set; }
 
+        public int MandatorId { get; set; }
 
-        public VueTOView.Common.Environment environment { get; set; }
+        public ID TechnicianID { get; set; }
 
+        public DateTime Date { get; set; }
+
+        public VueTOView.Common.Environment Environment { get; set; }
     }
 }

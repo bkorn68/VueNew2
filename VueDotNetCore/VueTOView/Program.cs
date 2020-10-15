@@ -1,30 +1,18 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using ServiceReference1;
-using ServiceReference2;
-using VueTOView.Common;
-using VueTOView.Converters;
-using VueTOView.Tests;
-
-
 namespace VueTOView
 {
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.Extensions.Hosting;
+
     public static class Program
     {
         public static void Main(string[] args)
         {
-            //Test();
-
+            // Test();
             CreateHostBuilder(args).Build().Run();
         }
-        //public static void Test()
-        //{
+
+        // public static void Test()
+        // {
         //    ////TODO Insert your credentials for testing
         //    string loginname = "";
         //    string password = "";
@@ -47,10 +35,9 @@ namespace VueTOView
         //            List<TechnicianRequirement> tours = GetToursTest.TestGetTourOfTechnician(ident2, mandatorId, technicianID, date, environment);
         //        }
 
-        //    }
+        // }
 
-        //}
-
+        // }
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
