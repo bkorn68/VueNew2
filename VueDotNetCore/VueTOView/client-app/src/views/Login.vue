@@ -3,7 +3,7 @@
   <div>
     <loading :active.sync="isLoading" 
         
-        :loader="bars"
+        
         :is-full-page="fullPage"></loading>
     <h2>Login</h2>
     <div class="container">
@@ -24,7 +24,7 @@
     <button type="submit" @click="login">Login</button>
     
   </div>
-    <p v-if="msg">{{ msg }}</p>
+    <p id="msg" v-if="msg">{{ msg }}</p>
   </div>
 </template>
 <script>
