@@ -8,7 +8,7 @@ using VueTOView.ResponseData;
 
 namespace VueTOView.Tests
 {
-    public class GetToursTest
+    public static class GetToursTest
     {
         public static List<TechnicianRequirement> TestGetTourOfTechnician(Ident ident, int mandatorId, ID technicianID, DateTime date,   VueTOView.Common.Environment environment)
         {
@@ -44,6 +44,7 @@ namespace VueTOView.Tests
         }
         public static GeoLocation TestGetGeoLocation(WebToolExtendedServiceClient client, Ident ident, int mandatorId, ID GeoLocationID)
         {
+            if (client == null) throw new ArgumentNullException(nameof(client));
             GeoLocation geoLocation = null;
             Task<ServiceReference2.ResultOfGeoLocationuukIAVwv> task = client.GetGeoLocationAsync(ident, mandatorId, GeoLocationID, null);
             ResultOfGeoLocationuukIAVwv result = task.Result;

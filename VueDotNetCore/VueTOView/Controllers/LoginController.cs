@@ -18,6 +18,8 @@ namespace VueTOView.Controllers
 
         public IActionResult Login([FromBody]LoginRequest loginRequest)
         {
+            if (loginRequest == null) throw new ArgumentNullException(nameof(loginRequest));
+
             IActionResult response = Unauthorized();
             Ident ident = LoginFromService(loginRequest);
             if (ident != null)
@@ -30,7 +32,7 @@ namespace VueTOView.Controllers
 
             return response;
         }
-        private Ident LoginFromService(LoginRequest loginRequest)
+        private static Ident LoginFromService(LoginRequest loginRequest)
         {
             Ident ident = null;
             AuthorizerInternalClient client = ClientProvider.ProvideAuthClient(loginRequest.environment);

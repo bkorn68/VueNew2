@@ -10,6 +10,7 @@ namespace VueTOView.Converters
     {
         public static string GetAddressString(this GeoLocation geoLocation)
         {
+            if (geoLocation == null) throw new ArgumentNullException(nameof(geoLocation));
             return geoLocation.Street + " " + geoLocation.Housenumber + " " + geoLocation.ZIP + " " + geoLocation.City + " " + geoLocation.Country;
         }
 

@@ -11,6 +11,7 @@ namespace VueTOView.Converters
     {
         public static GetTechniciansResponseData Convert(Technician source)
         {
+            if (source == null) throw new ArgumentNullException(nameof(source));
             GetTechniciansResponseData target = new GetTechniciansResponseData()
             {
                 Name = source.Name,

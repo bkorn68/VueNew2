@@ -17,16 +17,16 @@ namespace VueTOView.Common
                     url = string.Empty;
                     break;
                 case Environment.Live:
-                    url = Const.LiveAuth;
+                    url = Consts.LiveAuth;
                     break;
                 case Environment.Test:
-                    url = Const.TestAuth;
+                    url = Consts.TestAuth;
                     break;
                 case Environment.Edu:
-                    url = Const.EduAuth;
+                    url = Consts.EduAuth;
                     break;
                 case Environment.Local:
-                    url = Const.LocalAuth;
+                    url = Consts.LocalAuth;
                     break;
                 default:
                     break;
@@ -43,16 +43,16 @@ namespace VueTOView.Common
                     url = string.Empty;
                     break;
                 case Environment.Live:
-                    url = Const.LiveTO;
+                    url = Consts.LiveTO;
                     break;
                 case Environment.Test:
-                    url = Const.TestTO;
+                    url = Consts.TestTO;
                     break;
                 case Environment.Edu:
-                    url = Const.EduTO;
+                    url = Consts.EduTO;
                     break;
                 case Environment.Local:
-                    url = Const.LocalTO;
+                    url = Consts.LocalTO;
                     break;
                 default:
                     break;

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace VueTOView.Common
 {
-    public class Const
+    public static class Consts
     {
 		internal const string LiveAuth = "http://bogemaslive:8092/bodegaAuthorizerInternal";
 		internal const string LiveTO = "http://bogemaslive:8190/bodegaWebToolExtendedService";

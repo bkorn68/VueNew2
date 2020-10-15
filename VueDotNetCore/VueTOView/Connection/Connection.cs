@@ -55,7 +55,7 @@ namespace VueTOView
                         while ((line = process.StandardOutput.ReadLine()) != null)
                         {
                             logger.LogInformation(line);
-                            if (!tcs.Task.IsCompleted && line.Contains(DoneMessage))
+                            if (!tcs.Task.IsCompleted && line.Contains(DoneMessage, System.StringComparison.InvariantCulture))
                             {
                                 tcs.SetResult(1);
                             }

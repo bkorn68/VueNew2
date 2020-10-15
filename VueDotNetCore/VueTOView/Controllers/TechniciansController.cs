@@ -17,15 +17,16 @@ namespace VueTOView.Controllers
     public class TechniciansController : ControllerBase
     {
         [HttpPost]
-        public IEnumerable<GetTechniciansResponseData> GetTechnicians([FromBody]GetTechniciansRequest getTechniciansRequest)
+        public static IEnumerable<GetTechniciansResponseData> GetTechnicians([FromBody]GetTechniciansRequest getTechniciansRequest)
         {
+            if (getTechniciansRequest == null) throw new ArgumentNullException(nameof(getTechniciansRequest));
             List<GetTechniciansResponseData> result = null;
             List<Technician> technicianlist = GetTechniciansFromService(getTechniciansRequest);
             result = technicianlist.Select(e => TechnicianToResponseDataConverter.Convert(e)).ToList();
             return result;
         }
 
-        private  List<Technician> GetTechniciansFromService(GetTechniciansRequest getTechniciansRequest)
+        private static  List<Technician> GetTechniciansFromService(GetTechniciansRequest getTechniciansRequest)
         {
             List<Technician> tourtechnicians = new List<Technician>();
             WebToolExtendedServiceClient client = ClientProvider.ProvideTOClient(getTechniciansRequest.environment);

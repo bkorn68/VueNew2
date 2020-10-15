@@ -17,7 +17,7 @@ namespace VueTOView.Controllers
     public class ToursController : ControllerBase
     {
         [HttpPost]
-        public IEnumerable<GetToursOfTechnicianResponseData> GetToursOfTechnician([FromBody]GetToursOfTechnicianRequest getToursOfTechnicianRequest)
+        public static IEnumerable<GetToursOfTechnicianResponseData> GetToursOfTechnician([FromBody]GetToursOfTechnicianRequest getToursOfTechnicianRequest)
         {
             List<GetToursOfTechnicianResponseData> result = null;
             List<TechnicianRequirement> list = null;
@@ -30,6 +30,8 @@ namespace VueTOView.Controllers
 
         public static List<TechnicianRequirement> GetToursOfTechnicianFromService(GetToursOfTechnicianRequest getToursOfTechnicianRequest)
         {
+            if (getToursOfTechnicianRequest == null) throw new ArgumentNullException(nameof(getToursOfTechnicianRequest));
+
             List<TechnicianRequirement> list = new List<TechnicianRequirement>();
             List<TechnicianRequirement> tours = new List<TechnicianRequirement>();
             WebToolExtendedServiceClient client = ClientProvider.ProvideTOClient(getToursOfTechnicianRequest.environment);
@@ -62,6 +64,7 @@ namespace VueTOView.Controllers
         }
         public static GeoLocation GetGeoLocation(WebToolExtendedServiceClient client, Ident ident, int mandatorId, ID GeoLocationID)
         {
+            if (client == null) throw new ArgumentNullException(nameof(client));
             GeoLocation geoLocation = null;
             Task<ServiceReference2.ResultOfGeoLocationuukIAVwv> task = client.GetGeoLocationAsync(ident, mandatorId, GeoLocationID, null);
             ResultOfGeoLocationuukIAVwv result = task.Result;
